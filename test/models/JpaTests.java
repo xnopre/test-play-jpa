@@ -53,7 +53,7 @@ public class JpaTests extends UnitTest {
 		post.em().clear();
 
 		assertEquals("post 2", Post.<Post> findById(post.id).text);
-		assertEquals("details 2", Post.<Post> findById(post.id).postDetails.text);
+		assertEquals("details 2", Post.<Post> findById(post.id).getPostDetails().text);
 		assertEquals("p2 c1", Comment.<Comment> findAll().get(0).text);
 		assertEquals("p2 c2", Comment.<Comment> findAll().get(1).text);
 	}
@@ -70,7 +70,7 @@ public class JpaTests extends UnitTest {
 
 		post = Post.<Post> findById(post.id);
 		post.text = "post 3 bis";
-		post.postDetails = new PostDetails("xyz");
+		post.setPostDetails(new PostDetails("xyz"));
 		post.comments.get(1).text = "p3 c2 bis";
 		post.comments.remove(post.comments.get(2));
 

@@ -18,11 +18,24 @@ public class Post extends Model {
 	@OneToMany(cascade = CascadeType.ALL, orphanRemoval = true)
 	public List<Comment> comments = new ArrayList<Comment>();
 
-	@OneToOne(cascade = CascadeType.ALL, orphanRemoval = true)
-	public PostDetails postDetails;
+	@OneToMany(cascade = CascadeType.ALL, orphanRemoval = true)
+	private List<PostDetails> listPostDetails = new ArrayList<PostDetails>();
 
 	public Post(String text, String details) {
 		this.text = text;
-		postDetails = new PostDetails(details);
+		setPostDetails(new PostDetails(details));
+	}
+
+	public void setPostDetails(PostDetails postDetails) {
+		storeAlwaysOnlyOneInstance(postDetails);
+	}
+
+	public PostDetails getPostDetails() {
+		return listPostDetails.get(0);
+	}
+
+	private void storeAlwaysOnlyOneInstance(PostDetails postDetails) {
+		listPostDetails.clear();
+		listPostDetails.add(postDetails);
 	}
 }
