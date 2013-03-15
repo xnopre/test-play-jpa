@@ -1,4 +1,0 @@
-15 mars 2013 16:18:40,154 INFO  ~ Starting D:\Users\Xavier\workspace.cnoa\testjpa\.
-15 mars 2013 16:18:40,916 WARN  ~ You're running Play! in DEV mode
-15 mars 2013 16:18:42,481 INFO  ~ Connected to jdbc:h2:mem:play;MODE=MYSQL;LOCK_MODE=0
-15 mars 2013 16:18:43,377 INFO  ~ Application 'testjpa' is now started !
